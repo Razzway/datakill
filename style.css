@@ -33,3 +33,8 @@ body {
     font-family: 'Old NewsPaper Types', sans-serif;
     color: var(--white);
 }
+
+h1, h2 {
+    font-family: 'Veteran Type Writer', sans-serif;
+    font-size: 3rem;
+}

@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Old NewsPaper Types';
+    src: url('fonts/OldNewspaperTypes.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Veteran Type Writer';
+    src: url('fonts/VeteranTypeWriter.woff2') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
     --main-color: #0d1012;
     --white: #f4f4f4;

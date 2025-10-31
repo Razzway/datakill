@@ -32,7 +32,7 @@ const xScaleBar = d3.scaleBand()
             .range([0, width])                     
             .padding(0.3);   
 
-/////// Nom de l'axe
+/////// Nom de l'axe ///////
 svgBar.append("text")
     .attr("text-anchor", "end")
     .attr("x", width)
@@ -55,7 +55,7 @@ const yScaleBar = d3.scaleLinear()
             .attr("class", "y-axis axis")
             .call(d3.axisLeft(yScaleBar));      
         
-/////. Nom de l'axe
+////// Nom de l'axe //////
 svgBar.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
@@ -65,7 +65,20 @@ svgBar.append("text")
     .text("Nombre de Meurtre")
 
 /////////////////////// Barres /////////////////////////////////////////////
-        svgBar.selectAll(".bar")
+
+const tooltipBar = d3.select("body")
+  .append("div")
+  .style("position", "absolute")
+  .style("visibility", "hidden")
+  .style("background-color", "white")
+  .style("border", "solid 1px #ccc")
+  .style("border-radius", "5px")
+  .style("padding", "8px")
+  .style("font-size", "14px")
+  .style("color", "black");
+
+
+svgBar.selectAll(".bar")
             .data(dataset)
             .enter()
             .append("rect")
@@ -74,11 +87,18 @@ svgBar.append("text")
             .attr("y", d => yScaleBar(d.value))       
             .attr("width", xScaleBar.bandwidth())    
             .attr("height", d => height - yScaleBar(d.value))
-            .attr("fill", "#640D14");
+            .attr("fill", "#640D14")
+            .on("mouseover", function(event, d) {
+               tooltipBar.style("visibility", "visible")
+                      .html(`<strong>${d.mois}</strong><br>${d.value} meurtres`); })
+             .on("mousemove", function(event) {
+              tooltipBar.style("top", (event.pageY - 30) + "px")
+                      .style("left", (event.pageX + 10) + "px");})
+              .on("mouseout", function() {
+                 tooltipBar.style("visibility", "hidden");});
+   };
 
-            };
-
-            //////////////////////////////////// Graphique Linéaire //////////////////////////////////////////////
+///////////////////////////////////////////// Graphique Linéaire /////////////////////////////////////////////////
 
 
 function afficherGraphiqueLigne(annees) {
@@ -98,7 +118,7 @@ const xScaleLine =  d3.scalePoint()
             .domain(annees.map(d => d.annee)) 
             .range([0, width])                     
            
-/////// Nom de l'axe
+/////// Nom de l'axe ///////
 svgLine.append("text")
     .attr("text-anchor", "end")
     .attr("x", width)
@@ -120,7 +140,7 @@ const yScaleLine = d3.scaleLinear()
             .attr("class", "y-axis axis")
             .call(d3.axisLeft(yScaleLine));   
             
-/////. Nom de l'axe
+/////// Nom de l'axe ///////
 svgLine.append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
@@ -129,8 +149,8 @@ svgLine.append("text")
     .attr("fill", "white")
     .text("Nombre de Meurtre")
             
-//////////////////////////////////////////////
-            
+////////////////////////////////// Trait //////////////////////////////////
+
             svgLine.append("path")
       .datum(annees)
       .attr("fill", "rgba(126, 42, 42, 0.3)")
@@ -142,16 +162,36 @@ svgLine.append("text")
         .y1(function(d) { return yScaleLine(d.value) })
         )
 
+//////// Points ///////
 
-    // Add the points
-    svgLine
-      .append("g")
-      .selectAll("dot")
-      .data(annees)
-      .enter()
-      .append("circle")
-        .attr("cx", function(d) { return xScaleLine(d.annee) } )
-        .attr("cy", function(d) { return yScaleLine(d.value) } )
-        .attr("r", 5)
-        .attr("fill", "#f7fffdff")
-}
+    const tooltipLine = d3.select("body")
+  .append("div")
+  .style("position", "absolute")
+  .style("visibility", "hidden")
+  .style("background-color", "white")
+  .style("border", "solid 1px #ccc")
+  .style("border-radius", "5px")
+  .style("padding", "8px")
+  .style("font-size", "14px")
+  .style("color", "black");
+
+
+  svgLine
+    .append("g")
+    .selectAll("dot")
+    .data(annees)
+    .enter()
+    .append("circle")
+    .attr("cx", function(d) { return xScaleLine(d.annee) } )
+    .attr("cy", function(d) { return yScaleLine(d.value) } )
+    .attr("r", 6.5)
+    .attr("fill", "#f7fffdff")
+    .on("mouseover", function(event, d) {
+        tooltipLine.style("visibility", "visible")
+                    .html(`<strong>${d.annee}</strong><br>${d.value} meurtres`); })
+    .on("mousemove", function(event) {
+        tooltipLine.style("top", (event.pageY - 30) + "px")
+                    .style("left", (event.pageX + 10) + "px");})
+    .on("mouseout", function() {
+        tooltipLine.style("visibility", "hidden");});
+   };

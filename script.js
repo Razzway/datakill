@@ -15,7 +15,7 @@ d3.json("data.json").then(data => {
 });
 
 function afficherGraphiqueBarre(dataset, key) {
- const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+ const margin = { top: 20, right: 30, bottom: 50, left: 60 };
         const width = 700 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
@@ -32,6 +32,14 @@ const xScaleBar = d3.scaleBand()
             .range([0, width])                     
             .padding(0.3);   
 
+/////// Nom de l'axe
+svgBar.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", width)
+    .attr("y", height +   45)
+    .attr("fill", "white")
+    .text("Mois");
+            
 
 //////////////////////////// Ordonnée //////////////////////////////////////
 const yScaleBar = d3.scaleLinear()
@@ -45,7 +53,16 @@ const yScaleBar = d3.scaleLinear()
 
         svgBar.append("g")
             .attr("class", "y-axis axis")
-            .call(d3.axisLeft(yScaleBar));              
+            .call(d3.axisLeft(yScaleBar));      
+        
+/////. Nom de l'axe
+svgBar.append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left+20)
+    .attr("x", -margin.top)
+    .attr("fill", "white")
+    .text("Nombre de Meurtre")
 
 /////////////////////// Barres /////////////////////////////////////////////
         svgBar.selectAll(".bar")
@@ -65,7 +82,7 @@ const yScaleBar = d3.scaleLinear()
 
 
 function afficherGraphiqueLigne(annees) {
- const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+ const margin = { top: 20, right: 30, bottom: 50, left: 70 };
         const width = 700 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
@@ -81,7 +98,13 @@ const xScaleLine =  d3.scalePoint()
             .domain(annees.map(d => d.annee)) 
             .range([0, width])                     
            
-
+/////// Nom de l'axe
+svgLine.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", width)
+    .attr("y", height +   45)
+    .attr("fill", "white")
+    .text("Année");
 
 //////////////////////////// Ordonnée //////////////////////////////////////
 const yScaleLine = d3.scaleLinear()
@@ -95,7 +118,16 @@ const yScaleLine = d3.scaleLinear()
 
         svgLine.append("g")
             .attr("class", "y-axis axis")
-            .call(d3.axisLeft(yScaleLine));    
+            .call(d3.axisLeft(yScaleLine));   
+            
+/////. Nom de l'axe
+svgLine.append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left+20)
+    .attr("x", -margin.top)
+    .attr("fill", "white")
+    .text("Nombre de Meurtre")
             
 //////////////////////////////////////////////
             

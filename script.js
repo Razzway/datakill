@@ -1,8 +1,16 @@
 d3.json("data.json").then(data => {
-  const dataBarre25 = data.dataBarre25; 
-  console.log(dataBarre25);
+ 
 
+  Object.keys(data).forEach(key => {
 
+    if (key.startsWith("dataBarre")) {
+      const dataset = data[key]; 
+      afficherGraphique(dataset, key); 
+    }
+  });
+});
+
+function afficherGraphique(dataset, key) {
  const margin = { top: 20, right: 30, bottom: 40, left: 40 };
         const width = 700 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
@@ -16,14 +24,14 @@ const svgBar = d3.select("#bar-chart-container")
 
 //////////////////////////// Abscisse //////////////////////////////////////
 const xScaleBar = d3.scaleBand()
-            .domain(dataBarre25.map(d => d.mois)) 
+            .domain(dataset.map(d => d.mois)) 
             .range([0, width])                     
             .padding(0.3);   
 
 
 //////////////////////////// Ordonnée //////////////////////////////////////
 const yScaleBar = d3.scaleLinear()
-            .domain([0, d3.max(dataBarre25, d => d.value)]) 
+            .domain([0, d3.max(dataset, d => d.value)]) 
             .range([height, 0]);                      
 
               svgBar.append("g")
@@ -37,7 +45,7 @@ const yScaleBar = d3.scaleLinear()
 
 /////////////////////// Barres /////////////////////////////////////////////
         svgBar.selectAll(".bar")
-            .data(dataBarre25)
+            .data(dataset)
             .enter()
             .append("rect")
             .attr("class", "bar")
@@ -47,4 +55,4 @@ const yScaleBar = d3.scaleLinear()
             .attr("height", d => height - yScaleBar(d.value))
             .attr("fill", "#640D14");
 
-            });
+            };

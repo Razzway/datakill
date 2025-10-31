@@ -4,16 +4,16 @@
   
 
 "annees": [
-{ "annee": 2025, "value": 0},
-{ "annee": 2024, "value": 1176},
-{ "annee": 2023, "value": 1192},
-{ "annee": 2022, "value": 1112 },
-{ "annee": 2021, "value": 1013 },
-{ "annee": 2020, "value": 964 },
-{ "annee": 2019, "value": 983 },
-{ "annee": 2018, "value": 893 },
+{ "annee": 2016, "value": 926 },
 { "annee": 2017, "value": 892 },
-{ "annee": 2016, "value": 926 } 
+{ "annee": 2018, "value": 893 },
+{ "annee": 2019, "value": 983 },
+{ "annee": 2020, "value": 964 },
+{ "annee": 2021, "value": 1013 },
+{ "annee": 2022, "value": 1112 },
+{ "annee": 2023, "value": 1192},
+{ "annee": 2024, "value": 1176},
+{ "annee": 2025, "value": 0}
 
 ],
 

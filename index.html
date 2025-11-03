@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Datakill</title>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tueurs en séries</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <h1>Le meurtre en quelques années.</h1>
-        <h2>Combien d'homicides depuis 10 ans</h2>
-        
-        <span>
-            <h1>Juillet : le mois le plus meurtrier</h1>
+  <!-- PAGE 1: Video d'introduction -->
+  <section id="page1" class="page full-screen">
+    <video autoplay muted loop id="intro-video">
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+    <h1 class="video-title">Bienvenue sur DATAKILL </h1>
+  </section>
 
-            <label for="">Séléctionner une année : </label>
+  <!-- PAGE 2: Map du monde -->
+  <section id="page2" class="page full-screen">
+    <h2>Le meurtre en quelques données</h2>
+    <div id="map-container"></div>
+  </section>
+
+  <!-- PAGE 3: Statistiques globales -->
+  <section id="page3" class="page full-screen stats-page">
+    <div class="stats">
+      <p> Dans le monde <span class="big-number">3 500 000</span> homicides dans le monde en 10 ans</p>
+      <p> En France <span class="big-number">8 037</span> homicides en France en 10 ans</p>
+    </div>
+  </section>
+
+  <!-- PAGE 4: Graphique + texte gauche -->
+  <section id="page4" class="page full-screen chart-page">
+    <div class="chart-left">
+      <div id="linear-graph-container"></div>
+       <label for="">Séléctionner une année : </label>
             <select  id="annee-select">
                 <option value="moy">Moyenne </option>
                 <option value="25">2025</option>
@@ -32,10 +50,25 @@
             </select>
             <div id="bar-graph-container"> </div>
         </span>
-        
-        <h1>EVOLUTIONS DES HOMICIDES DEPUIS 10 ANS</h1>
-        <div id="linear-graph-container"></div>
+    </div>
+    <div class="text-right">
+      <h3>Juillet, le mois le plus meurtrier</h3>
+      <p>
+      paragraph
+      </p>
+    </div>
+  </section>
 
-        <script src="script.js"></script>
-    </body>
-</html>
+  <!-- PAGE 5: Graphique + texte droit -->
+  <section id="page5" class="page full-screen chart-page">
+    <div class="text-left">
+      <h3>Evolution des homicides depuis 10 ans</h3>
+      <p>
+        Paragraph 
+      </p>
+    </div>
+    <div class="chart-right">
+      <div id="linear-graph-container2"></div>
+      <div id="bar-graph-container2"></div>
+    </div>
+  </section>

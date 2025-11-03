@@ -1,175 +1,171 @@
 {
   "titre": "Tueurs en séries",
   "description": "Tableau récapitulatif des principaux tueurs en série français, avec intégration des données de meurtres par année et par mois.",
-  
 
-"annees": [
-{ "annee": 2016, "value": 926 },
-{ "annee": 2017, "value": 892 },
-{ "annee": 2018, "value": 893 },
-{ "annee": 2019, "value": 983 },
-{ "annee": 2020, "value": 964 },
-{ "annee": 2021, "value": 1013 },
-{ "annee": 2022, "value": 1112 },
-{ "annee": 2023, "value": 1192},
-{ "annee": 2024, "value": 1176},
-{ "annee": 2025, "value": 0}
+  "annees": [
+    { "annee": 2016, "value": 926 },
+    { "annee": 2017, "value": 892 },
+    { "annee": 2018, "value": 893 },
+    { "annee": 2019, "value": 983 },
+    { "annee": 2020, "value": 964 },
+    { "annee": 2021, "value": 1013 },
+    { "annee": 2022, "value": 1112 },
+    { "annee": 2023, "value": 1192},
+    { "annee": 2024, "value": 1176},
+    { "annee": 2025, "value": 0}
+  ],
 
-],
+  "dataBarre25": [
+    { "mois": "Janvier", "value": 95 },
+    { "mois": "Fevrier", "value": 92 },
+    { "mois": "Mars", "value": 100 },
+    { "mois": "Avril", "value": 97 },
+    { "mois": "Mai", "value": 125 },
+    { "mois": "Juin", "value": 107 },
+    { "mois": "Juillet", "value": 94 },
+    { "mois": "Août", "value": 103 },
+    { "mois": "Septembre", "value": 112 },
+    { "mois": "Octobre", "value": 0 },
+    { "mois": "Novembre", "value": 0 },
+    { "mois": "Décembre", "value": 0 }
+  ],
 
-"dataBarre25": [
-{ "mois": "Janvier", "value": 95 },
-{ "mois": "Fevrier", "value": 92 },
-{ "mois": "Mars", "value": 100 },
-{ "mois": "Avril", "value": 97 },
-{ "mois": "Mai", "value": 125 },
-{ "mois": "Juin", "value": 107 },
-{ "mois": "Juillet", "value": 94 },
-{ "mois": "Août", "value": 103 },
-{ "mois": "Septembre", "value": 112 },
-{ "mois": "Octobre", "value": 0 },
-{ "mois": "Novembre", "value": 0 },
-{ "mois": "Décembre", "value": 0 }
-],
+  "dataBarre24": [
+    { "mois": "Janvier", "value": 82 },
+    { "mois": "Fevrier", "value": 91 },
+    { "mois": "Mars", "value": 93 },
+    { "mois": "Avril", "value": 88 },
+    { "mois": "Mai", "value": 88 },
+    { "mois": "Juin", "value": 88 },
+    { "mois": "Juillet", "value": 115 },
+    { "mois": "Août", "value": 92 },
+    { "mois": "Septembre", "value": 119 },
+    { "mois": "Octobre", "value": 94 },
+    { "mois": "Novembre", "value": 114 },
+    { "mois": "Décembre", "value": 112 }
+  ],
 
-"dataBarre24": [
-{ "mois": "Janvier", "value": 82 },
-{ "mois": "Fevrier", "value": 91 },
-{ "mois": "Mars", "value": 93 },
-{ "mois": "Avril", "value": 88 },
-{ "mois": "Mai", "value": 88 },
-{ "mois": "Juin", "value": 88 },
-{ "mois": "Juillet", "value": 115 },
-{ "mois": "Août", "value": 92 },
-{ "mois": "Septembre", "value": 119 },
-{ "mois": "Octobre", "value": 94 },
-{ "mois": "Novembre", "value": 114 },
-{ "mois": "Décembre", "value": 112 }
-],
+  "dataBarre23": [
+    { "mois": "Janvier", "value": 105 },
+    { "mois": "Fevrier", "value": 109 },
+    { "mois": "Mars", "value": 88 },
+    { "mois": "Avril", "value": 94 },
+    { "mois": "Mai", "value": 117 },
+    { "mois": "Juin", "value": 95 },
+    { "mois": "Juillet", "value": 86 },
+    { "mois": "Août", "value": 106 },
+    { "mois": "Septembre", "value": 85 },
+    { "mois": "Octobre", "value": 114 },
+    { "mois": "Novembre", "value": 82 },
+    { "mois": "Décembre", "value": 111 }
+  ],
 
-"dataBarre23": [
-{ "mois": "Janvier", "value": 105 },
-{ "mois": "Fevrier", "value": 109 },
-{ "mois": "Mars", "value": 88 },
-{ "mois": "Avril", "value": 94 },
-{ "mois": "Mai", "value": 117 },
-{ "mois": "Juin", "value": 95 },
-{ "mois": "Juillet", "value": 86 },
-{ "mois": "Août", "value": 106 },
-{ "mois": "Septembre", "value": 85 },
-{ "mois": "Octobre", "value": 114 },
-{ "mois": "Novembre", "value": 82 },
-{ "mois": "Décembre", "value": 111 }
-],
+  "dataBarre22": [
+    { "mois": "Janvier", "value": 82 },
+    { "mois": "Fevrier", "value": 76 },
+    { "mois": "Mars", "value": 101 },
+    { "mois": "Avril", "value": 87 },
+    { "mois": "Mai", "value": 97 },
+    { "mois": "Juin", "value": 85 },
+    { "mois": "Juillet", "value": 109 },
+    { "mois": "Août", "value": 109 },
+    { "mois": "Septembre", "value": 80 },
+    { "mois": "Octobre", "value": 94 },
+    { "mois": "Novembre", "value": 81 },
+    { "mois": "Décembre", "value": 111 }
+  ],
 
-"dataBarre22": [
-{ "mois": "Janvier", "value": 82 },
-{ "mois": "Fevrier", "value": 76 },
-{ "mois": "Mars", "value": 101 },
-{ "mois": "Avril", "value": 87 },
-{ "mois": "Mai", "value": 97 },
-{ "mois": "Juin", "value": 85 },
-{ "mois": "Juillet", "value": 109 },
-{ "mois": "Août", "value": 109 },
-{ "mois": "Septembre", "value": 80 },
-{ "mois": "Octobre", "value": 94 },
-{ "mois": "Novembre", "value": 81 },
-{ "mois": "Décembre", "value": 111 }
-],
+  "dataBarre21": [
+    { "mois": "Janvier", "value": 93 },
+    { "mois": "Fevrier", "value": 58 },
+    { "mois": "Mars", "value": 83 },
+    { "mois": "Avril", "value": 71 },
+    { "mois": "Mai", "value": 88 },
+    { "mois": "Juin", "value": 95 },
+    { "mois": "Juillet", "value": 102 },
+    { "mois": "Août", "value": 77 },
+    { "mois": "Septembre", "value": 89 },
+    { "mois": "Octobre", "value": 88 },
+    { "mois": "Novembre", "value": 81 },
+    { "mois": "Décembre", "value": 88 }
+  ],
 
-"dataBarre21": [
-{ "mois": "Janvier", "value": 93 },
-{ "mois": "Fevrier", "value": 58 },
-{ "mois": "Mars", "value": 83 },
-{ "mois": "Avril", "value": 71 },
-{ "mois": "Mai", "value": 88 },
-{ "mois": "Juin", "value": 95 },
-{ "mois": "Juillet", "value": 102 },
-{ "mois": "Août", "value": 77 },
-{ "mois": "Septembre", "value": 89 },
-{ "mois": "Octobre", "value": 88 },
-{ "mois": "Novembre", "value": 81 },
-{ "mois": "Décembre", "value": 88 }
-],
+  "dataBarre20": [
+    { "mois": "Janvier", "value": 85 },
+    { "mois": "Fevrier", "value": 80 },
+    { "mois": "Mars", "value": 71 },
+    { "mois": "Avril", "value": 62 },
+    { "mois": "Mai", "value": 62 },
+    { "mois": "Juin", "value": 88 },
+    { "mois": "Juillet", "value": 98 },
+    { "mois": "Août", "value": 82 },
+    { "mois": "Septembre", "value": 83 },
+    { "mois": "Octobre", "value": 81 },
+    { "mois": "Novembre", "value": 75 },
+    { "mois": "Décembre", "value": 97 }
+  ],
 
-"dataBarre20": [
-{ "mois": "Janvier", "value": 85 },
-{ "mois": "Fevrier", "value": 80 },
-{ "mois": "Mars", "value": 71 },
-{ "mois": "Avril", "value": 62 },
-{ "mois": "Mai", "value": 62 },
-{ "mois": "Juin", "value": 88 },
-{ "mois": "Juillet", "value": 98 },
-{ "mois": "Août", "value": 82 },
-{ "mois": "Septembre", "value": 83 },
-{ "mois": "Octobre", "value": 81 },
-{ "mois": "Novembre", "value": 75 },
-{ "mois": "Décembre", "value": 97 }
-],
+  "dataBarre19": [
+    { "mois": "Janvier", "value": 79 },
+    { "mois": "Fevrier", "value": 56 },
+    { "mois": "Mars", "value": 98 },
+    { "mois": "Avril", "value": 84 },
+    { "mois": "Mai", "value": 75 },
+    { "mois": "Juin", "value": 69 },
+    { "mois": "Juillet", "value": 102 },
+    { "mois": "Août", "value": 76 },
+    { "mois": "Septembre", "value": 91 },
+    { "mois": "Octobre", "value": 92 },
+    { "mois": "Novembre", "value": 86 },
+    { "mois": "Décembre", "value": 75 }
+  ],
 
-"dataBarre19": [
-{ "mois": "Janvier", "value": 79 },
-{ "mois": "Fevrier", "value": 56 },
-{ "mois": "Mars", "value": 98 },
-{ "mois": "Avril", "value": 84 },
-{ "mois": "Mai", "value": 75 },
-{ "mois": "Juin", "value": 69 },
-{ "mois": "Juillet", "value": 102 },
-{ "mois": "Août", "value": 76 },
-{ "mois": "Septembre", "value": 91 },
-{ "mois": "Octobre", "value": 92 },
-{ "mois": "Novembre", "value": 86 },
-{ "mois": "Décembre", "value": 75 }
-],
+  "dataBarre18": [
+    { "mois": "Janvier", "value": 73 },
+    { "mois": "Fevrier", "value": 63 },
+    { "mois": "Mars", "value": 69 },
+    { "mois": "Avril", "value": 89 },
+    { "mois": "Mai", "value": 74 },
+    { "mois": "Juin", "value": 82 },
+    { "mois": "Juillet", "value": 76 },
+    { "mois": "Août", "value": 84 },
+    { "mois": "Septembre", "value": 77 },
+    { "mois": "Octobre", "value": 62 },
+    { "mois": "Novembre", "value": 62 },
+    { "mois": "Décembre", "value": 82 }
+  ],
 
-"dataBarre18": [
-{ "mois": "Janvier", "value": 73 },
-{ "mois": "Fevrier", "value": 63 },
-{ "mois": "Mars", "value": 69 },
-{ "mois": "Avril", "value": 89 },
-{ "mois": "Mai", "value": 74 },
-{ "mois": "Juin", "value": 82 },
-{ "mois": "Juillet", "value": 76 },
-{ "mois": "Août", "value": 84 },
-{ "mois": "Septembre", "value": 77 },
-{ "mois": "Octobre", "value": 62 },
-{ "mois": "Novembre", "value": 62 },
-{ "mois": "Décembre", "value": 82 }
-],
+  "dataBarre17": [
+    { "mois": "Janvier", "value": 89 },
+    { "mois": "Fevrier", "value": 72 },
+    { "mois": "Mars", "value": 72 },
+    { "mois": "Avril", "value": 77 },
+    { "mois": "Mai", "value": 67 },
+    { "mois": "Juin", "value": 64 },
+    { "mois": "Juillet", "value": 77 },
+    { "mois": "Août", "value": 87 },
+    { "mois": "Septembre", "value": 54 },
+    { "mois": "Octobre", "value": 61 },
+    { "mois": "Novembre", "value": 88 },
+    { "mois": "Décembre", "value": 84 }
+  ],
 
-"dataBarre17": [
-{ "mois": "Janvier", "value": 89 },
-{ "mois": "Fevrier", "value": 72 },
-{ "mois": "Mars", "value": 72 },
-{ "mois": "Avril", "value": 77 },
-{ "mois": "Mai", "value": 67 },
-{ "mois": "Juin", "value": 64 },
-{ "mois": "Juillet", "value": 77 },
-{ "mois": "Août", "value": 87 },
-{ "mois": "Septembre", "value": 54 },
-{ "mois": "Octobre", "value": 61 },
-{ "mois": "Novembre", "value": 88 },
-{ "mois": "Décembre", "value": 84 }
-],
+  "dataBarre16": [
+    { "mois": "Janvier", "value": 78 },
+    { "mois": "Fevrier", "value": 81 },
+    { "mois": "Mars", "value": 70 },
+    { "mois": "Avril", "value": 57 },
+    { "mois": "Mai", "value": 70 },
+    { "mois": "Juin", "value": 86 },
+    { "mois": "Juillet", "value": 159 },
+    { "mois": "Août", "value": 68 },
+    { "mois": "Septembre", "value": 63 },
+    { "mois": "Octobre", "value": 57 },
+    { "mois": "Novembre", "value": 59 },
+    { "mois": "Décembre", "value": 78 }
+  ],
 
-"dataBarre16": [
-{ "mois": "Janvier", "value": 78 },
-{ "mois": "Fevrier", "value": 81 },
-{ "mois": "Mars", "value": 70 },
-{ "mois": "Avril", "value": 57 },
-{ "mois": "Mai", "value": 70 },
-{ "mois": "Juin", "value": 86 },
-{ "mois": "Juillet", "value": 159 },
-{ "mois": "Août", "value": 68 },
-{ "mois": "Septembre", "value": 63 },
-{ "mois": "Octobre", "value": 57 },
-{ "mois": "Novembre", "value": 59 },
-{ "mois": "Décembre", "value": 78 }
-],
-
-
-
-"serialkillers": [
+  "serialkillers": [
     {
       "nom": "Guy Georges",
       "surnom": "Le tueur de l'Est parisien",

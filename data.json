@@ -15,6 +15,21 @@
     { "annee": 2025, "value": 0}
   ],
 
+  "dataBarremoy": [
+    { "mois": "Janvier", "value": 86.1 },
+    { "mois": "Fevrier", "value": 77.8 },
+    { "mois": "Mars", "value": 84.5 },
+    { "mois": "Avril", "value": 80.6 },
+    { "mois": "Mai", "value": 86.3 },
+    { "mois": "Juin", "value": 85.9 },
+    { "mois": "Juillet", "value": 101.8 },
+    { "mois": "Août", "value": 88.4 },
+    { "mois": "Septembre", "value": 85.3 },
+    { "mois": "Octobre", "value": 74.3 },
+    { "mois": "Novembre", "value": 72.8 },
+    { "mois": "Décembre", "value": 83.8 }
+  ],
+
   "dataBarre25": [
     { "mois": "Janvier", "value": 95 },
     { "mois": "Fevrier", "value": 92 },

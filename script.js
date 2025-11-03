@@ -13,7 +13,7 @@ d3.json("data.json").then(data => {
 
  
   select.addEventListener('change', changerGraphique);
-  select.value = "25";
+  select.value = "moy";
   changerGraphique();
 });
 

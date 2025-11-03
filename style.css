@@ -99,17 +99,23 @@ select {
   padding: 40px;
 }
 
-.chart-left, .chart-right {
-  flex: 2;
+.chart-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+#bar-graph-container {
+  align-self: flex-end;
+}
+
+
 .text-left, .text-right {
   flex: 1;
-  background-color: #1f1f1f;
   color: white;
   padding: 20px;
   border-radius: 8px;
 }
 
-/* In PAGE5, chart on right */
 .chart-right { order: 2; }
 .text-left { order: 1; }

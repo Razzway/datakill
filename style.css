@@ -40,8 +40,10 @@ h1, h2 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    display: inline-block;
+    padding: 6px 10px; 
     background-color: var(--blood-red);
+    font-size: 1.5rem;
 }
 
 select {
@@ -50,4 +52,22 @@ select {
   
   border-radius: 5px;
   padding: 5px;
+}
+
+.logo {
+   text-align: center;
+}
+
+.recap {
+    text-align: right;
+    margin-right: 20px;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
 }

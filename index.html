@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tueurs en séries</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <title>Datakill</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,8 +33,9 @@
 
   <!-- PAGE 4: Graphique + texte gauche -->
   <section id="page4" class="page full-screen chart-page">
+
     <div class="chart-left">
-      <div id="linear-graph-container"></div>
+
        <label for="">Séléctionner une année : </label>
             <select  id="annee-select">
                 <option value="moy">Moyenne </option>
@@ -56,7 +58,9 @@
       <p>
       paragraph
       </p>
+
     </div>
+
   </section>
 
   <!-- PAGE 5: Graphique + texte droit -->
@@ -68,7 +72,11 @@
       </p>
     </div>
     <div class="chart-right">
-      <div id="linear-graph-container2"></div>
-      <div id="bar-graph-container2"></div>
+      <div id="linear-graph-container"></div>
+  
     </div>
   </section>
+
+
+<script src="script.js"></script>
+</body>

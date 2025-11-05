@@ -1,95 +1,102 @@
-d3.json("data.json").then(jsonData => {  
+d3.json("populationData.json").then(data1 => {  
   const svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
 
   const projection = d3.geoMercator()
     .scale(70)
     .center([0, 20])
     .translate([width / 2, height / 2]);
 
-  const populationData = new Map();
 
-Promise.all([
-  d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-  d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", d => {
-    populationData.set(d.code, +d.pop);
-  })
-]).then(function(loadData) {
-  const topo = loadData[0];
+  const populationData = new Map(data1.pays.map(d => [d.name, { value: d.value, nom: d.nom }]));
 
-  const tooltipLine = d3.select("body")
-    .append("div")
-    .style("position", "absolute")
-    .style("visibility", "hidden")
-    .style("background-color", "white")
-    .style("border", "solid 1px #ccc")
-    .style("border-radius", "5px")
-    .style("padding", "8px")
-    .style("font-size", "14px")
-    .style("color", "black");
+ 
+  d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+    .then(function(topo) {
 
-  console.log("Liste des pays :", topo.features.map(d => d.properties.name));
+      const tooltipLine = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "white")
+        .style("border", "solid 1px #ccc")
+        .style("border-radius", "5px")
+        .style("padding", "8px")
+        .style("font-size", "14px")
+        .style("color", "black");
 
-  let mouseOver = function(event, d) {
-    d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .5);
+  
+      let mouseOver = function(event, d) {
+        d3.selectAll(".Country")
+          .transition()
+          .duration(200)
+          .style("opacity", .5);
 
-    d3.select(this)
-      .transition()
-      .duration(200)
-      .style("opacity", 1);
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("opacity", 1);
 
-    tooltipLine
-      .style("visibility", "visible")
-      .html(`<strong>${populationData.get(d.nom)}</strong><br>Taux : ${populationData.get(d.value)}`);
-  }
+        const afficheData = populationData.get(d.properties.name);
 
-  let mouseMove = function(event, d) {
-    tooltipLine
-      .style("top", (event.pageY - 30) + "px")
-      .style("left", (event.pageX + 10) + "px");
-  }
+        if (afficheData) {
+          tooltipLine
+            .style("visibility", "visible")
+            .html(`<strong>${afficheData.nom}</strong><br>Taux : ${afficheData.value}`);
+        } else {
+          tooltipLine
+            .style("visibility", "visible")
+            .html(`<strong>${d.properties.name}</strong><br>Taux : Inconnu`);
+        }
+      };
 
-  let mouseLeave = function(event, d) {
-    d3.selectAll(".Country")
-      .transition()
-      .duration(200)
-      .style("opacity", .8);
+      let mouseMove = function(event, d) {
+        tooltipLine
+          .style("top", (event.pageY - 30) + "px")
+          .style("left", (event.pageX + 10) + "px");
+      };
 
-    tooltipLine.style("visibility", "hidden");
-  }
+      let mouseLeave = function(event, d) {
+        d3.selectAll(".Country")
+          .transition()
+          .duration(200)
+          .style("opacity", .8);
+
+        tooltipLine.style("visibility", "hidden");
+      };
 
 
-  svg.append("g")
-    .selectAll("path")
-    .data(topo.features)
-    .enter()
-    .append("path")
-    .attr("d", d3.geoPath().projection(projection))
-    .attr("class", "Country")
-    .attr("fill", "rgba(255, 252, 252, 1)")
-    .style("stroke", "black")
-    .on("mouseover", mouseOver)
-    .on("mousemove", mouseMove)
-    .on("mouseleave", mouseLeave);
+      svg.append("g")
+        .selectAll("path")
+        .data(topo.features)
+        .enter()
+        .append("path")
+        .attr("d", d3.geoPath().projection(projection))
+        .attr("class", "Country")
+        .attr("fill", "rgba(255, 252, 252, 1)")
+        .style("stroke", "black")
+        .on("mouseover", mouseOver)
+        .on("mousemove", mouseMove)
+        .on("mouseleave", mouseLeave);
 
-  //////////////////////////
-  d3.select("body")
-    .append("ul")
-    .selectAll("li")
-    .data(topo.features)
-    .join("li")
-    .text(d => d.properties.name);
+
+      d3.select("body")
+        .append("ul")
+        .selectAll("li")
+        .data(topo.features)
+        .join("li")
+        .text(d => d.properties.name);
+    });
 });
 
 
 
 /////////////////////////////////////////////// GRAPHIQUES ///////////////////////////////////////////////////////////////
-  
-const data = jsonData; 
+ 
+d3.json("data.json").then(data2 => {  
+
+const data = data2; 
 const annees = data.annees; 
 afficherGraphiqueLigne(annees);
 
@@ -287,4 +294,4 @@ function afficherGraphiqueLigne(annees) {
                     .style("left", (event.pageX + 10) + "px");})
     .on("mouseout", function() {
         tooltipLine.style("visibility", "hidden");});
-};
+    }

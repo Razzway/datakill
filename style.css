@@ -52,8 +52,6 @@ select {
   padding: 5px;
 }
 
-
-/* Full screen sections */
 .page {
   width: 100vw;
   height: 100vh;
@@ -64,7 +62,6 @@ select {
   align-items: center;
 }
 
-/* PAGE 1 - Video */
 #intro-video {
   position: absolute;
   top: 0; left: 0;
@@ -74,48 +71,79 @@ select {
   z-index: -1;
 }
 
-.video-title {
-  font-size: 3em;
-  text-align: center;
-  color: white;
-}
 
-/* PAGE 3 - Stats */
-.stats-page .stats {
-  text-align: center;
-}
 .big-number {
   font-size: 3em;
-  color: #ff4b4b;
+  color: #640D14;
+  font-family: 'Veteran Type Writer', monospace;
+  font-size: 3rem;
+  display: inline-block;
+  animation: popIn 0.8s ease forwards;
+
 }
 
-/* PAGE 4 & 5 - Chart + texte layout */
 .chart-page {
   display: flex;
-  flex-direction: row;
-  gap: 30px;
   align-items: flex-start;
-  justify-content: center;
-  padding: 40px;
-}
-
-.chart-left {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-#bar-graph-container {
-  align-self: flex-end;
-}
-
-
-.text-left, .text-right {
-  flex: 1;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 80px 60px;
   color: white;
-  padding: 20px;
-  border-radius: 8px;
 }
 
-.chart-right { order: 2; }
-.text-left { order: 1; }
+.chart-page.inverse {
+  flex-direction: row-reverse;
+}
+
+.chart-side.left {
+  justify-content: flex-start;
+}
+
+.chart-side.right {
+  justify-content: flex-end;
+}
+
+.text-side.right {
+  text-align: left;
+  margin-left: auto;
+}
+
+.text-side.left {
+  text-align: left;
+  margin-right: auto;
+}
+
+.text-side h3 {
+  font-family: 'Veteran Type Writer', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.text-side h3 span {
+  background-color: #640D14;
+  padding: 4px 8px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .chart-page, .chart-page.inverse {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .text-side, .chart-side {
+    max-width: 100%;
+  }
+
+  .text-side h3 {
+    font-size: 1.5rem;
+  }
+
+  .text-side p {
+    font-size: 0.95rem;
+  }
+}

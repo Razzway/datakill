@@ -62,6 +62,7 @@ select {
   align-items: center;
 }
 
+<<<<<<< HEAD
 .big-number {
   font-family: 'Veteran Type Writer';
   font-size: 6rem;
@@ -84,6 +85,41 @@ select {
   flex-direction: row-reverse;
 }
 
+=======
+#intro-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+.big-number {
+  font-size: 3em;
+  color: #640D14;
+  font-family: 'Veteran Type Writer', monospace;
+  font-size: 3rem;
+  display: inline-block;
+  animation: popIn 0.8s ease forwards;
+
+}
+
+.chart-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 80px 60px;
+  color: white;
+}
+
+.chart-page.inverse {
+  flex-direction: row-reverse;
+}
+
+>>>>>>> AnhHTML
 .chart-side.left {
   justify-content: flex-start;
 }
@@ -103,7 +139,11 @@ select {
 }
 
 .text-side h3 {
+<<<<<<< HEAD
   font-family: 'Veteran Type Writer';
+=======
+  font-family: 'Veteran Type Writer', sans-serif;
+>>>>>>> AnhHTML
   font-size: 2rem;
   text-transform: uppercase;
   margin-bottom: 25px;
@@ -135,4 +175,8 @@ select {
   .text-side p {
     font-size: 0.95rem;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> AnhHTML

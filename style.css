@@ -38,3 +38,113 @@ h1, h2 {
     font-family: 'Veteran Type Writer', sans-serif;
     font-size: 3rem;
 }
+
+h2 {
+    font-size: 1.5rem;
+    background-color: var(--blood-red);
+}
+
+select {
+  background-color: #1a1a1a;
+  color: white;
+  
+  border-radius: 5px;
+  padding: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'OldNewspaperTypes.', sans-serif;
+  background-color: #111;
+  color: white;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-number {
+  font-family: 'Veteran Type Writer';
+  font-size: 6rem;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  background-color: #640d14;
+  padding: 4px 8px;
+  color: #fff;
+}
+
+.stats .big-number {
+  font-family: 'Veteran Type Writer';
+  font-size: 3rem;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.chart-page.inverse {
+  flex-direction: row-reverse;
+}
+
+.chart-side.left {
+  justify-content: flex-start;
+}
+
+.chart-side.right {
+  justify-content: flex-end;
+}
+
+.text-side.right {
+  text-align: left;
+  margin-left: auto;
+}
+
+.text-side.left {
+  text-align: left;
+  margin-right: auto;
+}
+
+.text-side h3 {
+  font-family: 'Veteran Type Writer';
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.text-side h3 span {
+  background-color: #640D14;
+  padding: 4px 8px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .chart-page, .chart-page.inverse {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .text-side, .chart-side {
+    max-width: 100%;
+  }
+
+  .text-side h3 {
+    font-size: 1.5rem;
+  }
+
+  .text-side p {
+    font-size: 0.95rem;
+  }
+}

@@ -45,25 +45,15 @@ h2 {
 }
 
 select {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--white);
   
   border-radius: 5px;
   padding: 5px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  font-family: 'OldNewspaperTypes.', sans-serif;
-  background-color: #111;
-  color: white;
-}
-
+/* Full screen sections */
 .page {
   width: 100vw;
   height: 100vh;
@@ -74,77 +64,58 @@ body {
   align-items: center;
 }
 
+/* PAGE 1 - Video */
+#intro-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-title {
+  font-size: 3em;
+  text-align: center;
+  color: white;
+}
+
+/* PAGE 3 - Stats */
+.stats-page .stats {
+  text-align: center;
+}
 .big-number {
-  font-family: 'Veteran Type Writer';
-  font-size: 6rem;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-  letter-spacing: 3px;
-  background-color: #640d14;
-  padding: 4px 8px;
-  color: #fff;
+  font-size: 3em;
+  color: #ff4b4b;
 }
 
-.stats .big-number {
-  font-family: 'Veteran Type Writer';
-  font-size: 3rem;
-  color: #ffffff;
-  display: inline-block;
+/* PAGE 4 & 5 - Chart + texte layout */
+.chart-page {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
 }
 
-.chart-page.inverse {
-  flex-direction: row-reverse;
+.chart-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.chart-side.left {
-  justify-content: flex-start;
+#bar-graph-container {
+  align-self: flex-end;
 }
 
-.chart-side.right {
-  justify-content: flex-end;
+
+.text-left, .text-right {
+  flex: 1;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.text-side.right {
-  text-align: left;
-  margin-left: auto;
-}
-
-.text-side.left {
-  text-align: left;
-  margin-right: auto;
-}
-
-.text-side h3 {
-  font-family: 'Veteran Type Writer';
-  font-size: 2rem;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-}
-
-.text-side h3 span {
-  background-color: #640D14;
-  padding: 4px 8px;
-  color: #fff;
-  border-radius: 3px;
-}
-
-@media (max-width: 900px) {
-  .chart-page, .chart-page.inverse {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .text-side, .chart-side {
-    max-width: 100%;
-  }
-
-  .text-side h3 {
-    font-size: 1.5rem;
-  }
-
-  .text-side p {
-    font-size: 0.95rem;
-  }
-}
+.chart-right { order: 2; }
+.text-left { order: 1; }

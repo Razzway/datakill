@@ -8,21 +8,9 @@
 </head>
 <body>
 
-  <select id="annee-select">
-  <option value="25">2025</option>
-  <option value="24">2024</option>
-  <option value="23">2023</option>
-  <option value="22">2022</option>
-  <option value="21">2021</option>
-  <option value="20">2020</option>
-  <option value="19">2019</option>
-  <option value="18">2018</option>
-  <option value="17">2017</option>
-  <option value="16">2016</option>
-  </select>
+  
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="script.js"></script>
+ 
 
   <section id="page1" class="page full-screen">
     <video autoplay muted loop id="intro-video">
@@ -45,6 +33,20 @@
 
 <section id="page4" class="page full-screen chart-page">
   <div class="chart-side left">
+    <label for="">Séléctionner une année : </label>
+    <select id="annee-select">
+ <option value="moy">Moyenne </option>
+  <option value="25">2025</option>
+  <option value="24">2024</option>
+  <option value="23">2023</option>
+  <option value="22">2022</option>
+  <option value="21">2021</option>
+  <option value="20">2020</option>
+  <option value="19">2019</option>
+  <option value="18">2018</option>
+  <option value="17">2017</option>
+  <option value="16">2016</option>
+  </select>
     <div id="bar-graph-container"></div>
   </div>
   <div class="text-side right">
@@ -57,24 +59,6 @@
     </p>
   </div>
 </section>
-<<<<<<< HEAD
-
-<section id="page5" class="page full-screen chart-page inverse">
-  <div class="text-side left">
-    <h3>Evolutions des <span>homicides depuis 10 ans</span></h3>
-    <p>
-      La Violence dans le Monde : Une Réalité à Plusieurs Visages
-      Au cours de la dernière décennie, le monde a enregistré environ 4 millions d'homicides, un chiffre globalement stable mais qui masque des réalités très différentes. 
-      Tandis que des pays comme la France voient leur nombre d'homicides augmenter pour atteindre près de 1 000 cas en 2023, d'autres comme le Brésil demeurent des épicentres de la violence,
-      totalisant à eux seuls plus de 440 000 meurtres sur la même période, soit environ 11% du total mondial. Cette concentration extrême de la violence, principalement liée au crime 
-      organisé en Amérique Latine, contraste fortement avec la situation en Europe, et démontre que derrière une apparente stabilité mondiale se cachent des dynamiques régionales complexes et des tragédies humaines aux causes très diverses.
-    </p>
-  </div>
-  <div class="chart-side right">
-    <div id="linear-graph-container"></div>
-  </div>
-</section>
-=======
 
 <section id="page5" class="page full-screen chart-page inverse">
   <div class="text-side left">
@@ -92,4 +76,7 @@
   </div>
 </section>
 
->>>>>>> AnhHTML
+ <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="script.js"></script>
+    
+</body>

@@ -4,7 +4,7 @@ d3.json("populationData.json").then(data1 => {
         height = +svg.attr("height");
 
   const projection = d3.geoMercator()
-    .scale(100)
+    .scale(120)
     .center([0, 20])
     .translate([width / 2, height / 2]);
 

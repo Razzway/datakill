@@ -79,14 +79,6 @@ d3.json("populationData.json").then(data1 => {
         .on("mouseover", mouseOver)
         .on("mousemove", mouseMove)
         .on("mouseleave", mouseLeave);
-
-
-      d3.select("body")
-        .append("ul")
-        .selectAll("li")
-        .data(topo.features)
-        .join("li")
-        .text(d => d.properties.name);
     });
 });
 

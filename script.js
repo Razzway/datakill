@@ -4,7 +4,7 @@ d3.json("populationData.json").then(data1 => {
         height = +svg.attr("height");
 
   const projection = d3.geoMercator()
-    .scale(70)
+    .scale(100)
     .center([0, 20])
     .translate([width / 2, height / 2]);
 
@@ -103,7 +103,7 @@ afficherGraphiqueLigne(annees);
 
  
   select.addEventListener('change', changerGraphique);
-  select.value = "25";
+  select.value = "moy";
   changerGraphique();
 });
 

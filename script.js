@@ -1,10 +1,23 @@
-
+///////////////////////////////////// Disparition Video ///////////////////////////////////////////
 const video = document.querySelector("video");
 video.addEventListener("ended", () => {
   video.style.display = "none";
   
   document.querySelector(".page").style.display = "block";
 });
+
+/////////////////////////////////// Mention légale ////////////////////////////////////////////////
+
+document.querySelector(".lien-mention-legale").addEventListener('click', function (){
+
+  document.getElementById("mention-legale").style.display="block";
+});
+
+document.querySelector("button").addEventListener('click', function (){
+
+  document.getElementById("mention-legale").style.display="none";
+});
+
 
 ///////////////////////////////////////////////// Map /////////////////////////////////////////////////////////////
 d3.json("populationData.json").then(data1 => {  

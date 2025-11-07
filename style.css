@@ -31,7 +31,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
 
-    font-family: 'Old NewsPaper Types', sans-serif;
+    font-family: 'Old NewsPaper Types';
     color: var(--white);
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Veteran Type Writer', sans-serif;
+    font-family: 'Veteran Type Writer';
     font-size: 3rem;
 }
 
@@ -85,7 +85,7 @@ select {
 .big-number {
   font-size: 3em;
   color: #640D14;
-  font-family: 'Veteran Type Writer', monospace;
+  font-family: 'Veteran Type Writer';
   font-size: 3rem;
   display: inline-block;
   animation: popIn 0.8s ease forwards;

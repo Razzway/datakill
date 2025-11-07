@@ -6,6 +6,22 @@ video.addEventListener("ended", () => {
   document.querySelector(".page").style.display = "block";
 });
 
+
+/////////////////////////////////// Sources /////////////////////////////////////////////////////
+
+document.querySelector(".lien-sources").addEventListener('click', function (){
+
+  document.getElementById("sources").style.display="block";
+  document.querySelector("body").style.overflow="hidden";
+});
+
+document.querySelector(".button-sources").addEventListener('click', function (){
+
+  document.getElementById("sources").style.display="none";
+  document.querySelector("body").style.overflow="auto";
+});
+
+
 /////////////////////////////////// Mention légale ////////////////////////////////////////////////
 
 document.querySelector(".lien-mention-legale").addEventListener('click', function (){
@@ -14,7 +30,7 @@ document.querySelector(".lien-mention-legale").addEventListener('click', functio
   document.querySelector("body").style.overflow="hidden";
 });
 
-document.querySelector("button").addEventListener('click', function (){
+document.querySelector(".button-mention-legale").addEventListener('click', function (){
 
   document.getElementById("mention-legale").style.display="none";
   document.querySelector("body").style.overflow="auto";

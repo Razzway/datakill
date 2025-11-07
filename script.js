@@ -1,3 +1,12 @@
+
+const video = document.querySelector("video");
+video.addEventListener("ended", () => {
+  video.style.display = "none";
+  
+  document.querySelector(".page").style.display = "block";
+});
+
+///////////////////////////////////////////////// Map /////////////////////////////////////////////////////////////
 d3.json("populationData.json").then(data1 => {  
   const svg = d3.select("svg"),
         width = +svg.attr("width"),

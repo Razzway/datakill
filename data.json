@@ -11,8 +11,7 @@
     { "annee": 2021, "value": 1013 },
     { "annee": 2022, "value": 1112 },
     { "annee": 2023, "value": 1192},
-    { "annee": 2024, "value": 1176},
-    { "annee": 2025, "value": 0}
+    { "annee": 2024, "value": 1176}
   ],
 
   "dataBarremoy": [

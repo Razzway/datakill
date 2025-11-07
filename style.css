@@ -25,6 +25,7 @@
 }
 
 body {
+    
     background-color: var(--main-color);
     background-image: url("img/background.jpg");
     background-size: cover;
@@ -32,6 +33,15 @@ body {
 
     font-family: 'Old NewsPaper Types', sans-serif;
     color: var(--white);
+}
+
+.video {
+    display: block;
+    max-width: 100vw;
+}
+
+.page{
+    display: none;
 }
 
 h1, h2 {

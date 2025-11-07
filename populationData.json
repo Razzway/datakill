@@ -82,6 +82,7 @@
     { "name": "Kazakhstan", "value": 4.4, "nom": "Kazakhstan" },
     { "name": "Kyrgyzstan", "value": 4.7, "nom": "Kirghistan" },
     { "name": "Kosovo", "value": "Donée Inconnue", "nom": "Kosovo" },
+    { "name": "Kenya", "value": "Donée Inconnue", "nom": "Kenya" },
     { "name": "Kuwait", "value": 1.7, "nom": "Koweit" },
     { "name": "Laos", "value": 6.3, "nom": "Laos" },
     { "name": "Latvia", "value": 4.5, "nom": "Lettonie" },
@@ -163,10 +164,12 @@
     { "name": "Ukraine", "value": 5.6, "nom": "Ukraine" },
     { "name": "United Arab Emirates", "value": 0.7, "nom": "Les Emirats" },
     { "name": "United Republic of Tanzania", "value": 8.3, "nom": "Tanzanie" },
-    { "name": "Urugay", "value": 9.2, "nom": "Urugay" },
+    { "name": "Uruguay", "value": 9.2, "nom": "Uruguay" },
     { "name": "USA", "value": 5.8, "nom": "Etat Unis" },
     { "name": "Uzbekistan", "value": 1.3, "nom": "Ouzbekistan" },
     { "name": "West Bank", "value": "Donée Inconnue", "nom": "Palestine" },
-     { "name": "Yemen", "value": "Donée Inconnue", "nom": "Yémen" }
+    { "name": "Vietnam", "value": "Donée Inconnue", "nom": "Vietnam" },
+     { "name": "Yemen", "value": "Donée Inconnue", "nom": "Yémen" },
+     { "name": "Zambia", "value": "Donée Inconnue", "nom": "Zambie" }
 ]}
     

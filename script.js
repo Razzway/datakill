@@ -11,11 +11,13 @@ video.addEventListener("ended", () => {
 document.querySelector(".lien-mention-legale").addEventListener('click', function (){
 
   document.getElementById("mention-legale").style.display="block";
+  document.querySelector("body").style.overflow="hidden";
 });
 
 document.querySelector("button").addEventListener('click', function (){
 
   document.getElementById("mention-legale").style.display="none";
+  document.querySelector("body").style.overflow="auto";
 });
 
 

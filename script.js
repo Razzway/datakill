@@ -1,9 +1,20 @@
-///////////////////////////////////// Disparition Video ///////////////////////////////////////////
+
+///////////////////////////////////// Disparition Texte ///////////////////////////////////////////
+
 const video = document.querySelector("video");
+video.addEventListener("play", () => {
+  video.style.display = "block";
+  
+  document.querySelector("main").style.display = "none";
+});
+
+
+///////////////////////////////////// Disparition Video ///////////////////////////////////////////
+
 video.addEventListener("ended", () => {
   video.style.display = "none";
   
-  document.querySelector(".page").style.display = "block";
+  document.querySelector("main").style.display = "block";
 });
 
 

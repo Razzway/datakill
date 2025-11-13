@@ -1,26 +1,4 @@
-d3.json("data.json").then(data => {
-  const annees = data.annees; 
-  afficherGraphiqueLigne(annees);
-
-  const select = document.getElementById('annee-select');
-
-  function changerGraphique() {
-    const n = select.value; 
-    const dataBarre = data[`dataBarre${n}`];    
-    d3.select("#bar-graph-container").selectAll("*").remove();
-    afficherGraphiqueBarre(dataBarre);
-  }
-
- 
-  select.addEventListener('change', changerGraphique);
-  select.value = "25";
-  changerGraphique();
-});
-
-
-///////////////////////////////////////////// Histogrammes ////////////////////////////////////////////////////
-  
-
+// Histogrammes 
 function afficherGraphiqueBarre(dataBarre) {
   const margin = { top: 20, right: 30, bottom: 50, left: 60 };
           const width = 700 - margin.left - margin.right;
@@ -33,13 +11,13 @@ function afficherGraphiqueBarre(dataBarre) {
               .append("g")
               .attr("transform", `translate(${margin.left},${margin.top})`);
 
-//////////////////////////// Abscisse //////////////////////////////////////
+  // Abscisse 
   const xScaleBar = d3.scaleBand()
               .domain(dataBarre.map(d => d.mois)) 
               .range([0, width])                     
               .padding(0.3);   
 
-/////// Nom de l'axe ///////
+  // Nom de l'axe
   svgBar.append("text")
       .attr("text-anchor", "end")
       .attr("x", width)
@@ -47,7 +25,7 @@ function afficherGraphiqueBarre(dataBarre) {
       .attr("fill", "white")
       .text("Mois");
             
-//////////////////////////// Ordonnée //////////////////////////////////////
+  // Ordonnée 
   const yScaleBar = d3.scaleLinear()
               .domain([0, d3.max(dataBarre, d => d.value)]) 
               .range([height, 0]);                      
@@ -61,7 +39,7 @@ function afficherGraphiqueBarre(dataBarre) {
               .attr("class", "y-axis axis")
               .call(d3.axisLeft(yScaleBar));      
         
-////// Nom de l'axe //////
+  // Nom de l'axe 
   svgBar.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
@@ -70,7 +48,7 @@ function afficherGraphiqueBarre(dataBarre) {
       .attr("fill", "white")
       .text("Nombre de Meurtre")
 
-/////////////////////// Barres /////////////////////////////////////////////
+  // Barres 
   const tooltipBar = d3.select("body")
     .append("div")
     .style("position", "absolute")
@@ -103,7 +81,8 @@ function afficherGraphiqueBarre(dataBarre) {
                   tooltipBar.style("visibility", "hidden");});
 };
 
-///////////////////////////////////////////// Graphique Linéaire /////////////////////////////////////////////////
+
+// Graphique Linéaire 
 function afficherGraphiqueLigne(annees) {
   const margin = { top: 20, right: 30, bottom: 50, left: 70 };
           const width = 700 - margin.left - margin.right;
@@ -116,12 +95,12 @@ function afficherGraphiqueLigne(annees) {
               .append("g")
               .attr("transform", `translate(${margin.left},${margin.top})`);
 
-//////////////////////////// Abscisse //////////////////////////////////////
+  // Abscisse 
   const xScaleLine =  d3.scalePoint()
               .domain(annees.map(d => d.annee)) 
               .range([0, width])                     
            
-/////// Nom de l'axe ///////
+  // Nom de l'axe 
   svgLine.append("text")
       .attr("text-anchor", "end")
       .attr("x", width)
@@ -129,7 +108,7 @@ function afficherGraphiqueLigne(annees) {
       .attr("fill", "white")
       .text("Année");
 
-//////////////////////////// Ordonnée //////////////////////////////////////
+  // Ordonnée 
   const yScaleLine = d3.scaleLinear()
               .domain([0, d3.max(annees, d => d.value)]) 
               .range([height, 0]);                      
@@ -143,7 +122,7 @@ function afficherGraphiqueLigne(annees) {
               .attr("class", "y-axis axis")
               .call(d3.axisLeft(yScaleLine));   
               
-/////// Nom de l'axe ///////
+  // Nom de l'axe 
   svgLine.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
@@ -152,20 +131,19 @@ function afficherGraphiqueLigne(annees) {
       .attr("fill", "white")
       .text("Nombre de Meurtre")
             
-////////////////////////////////// Trait //////////////////////////////////
+  // Trait
+  svgLine.append("path")
+    .datum(annees)
+    .attr("fill", "rgba(126, 42, 42, 0.3)")
+    .attr("stroke", "#640D14")
+    .attr("stroke-width", 5)
+    .attr("d", d3.area()
+      .x(function(d) { return xScaleLine(d.annee) })
+      .y0(yScaleLine(0))
+      .y1(function(d) { return yScaleLine(d.value) })
+      )
 
-    svgLine.append("path")
-      .datum(annees)
-      .attr("fill", "rgba(126, 42, 42, 0.3)")
-      .attr("stroke", "#640D14")
-      .attr("stroke-width", 5)
-      .attr("d", d3.area()
-        .x(function(d) { return xScaleLine(d.annee) })
-        .y0(yScaleLine(0))
-        .y1(function(d) { return yScaleLine(d.value) })
-        )
-
-//////// Points ///////
+  // Points 
   const tooltipLine = d3.select("body")
     .append("div")
     .style("position", "absolute")
@@ -197,3 +175,100 @@ function afficherGraphiqueLigne(annees) {
     .on("mouseout", function() {
         tooltipLine.style("visibility", "hidden");});
 };
+
+
+// Sélecteur d'images et mise à jour des informations
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    const killers = data.serialkillers;
+    const container = document.querySelector('.img-selector');
+    const images = Array.from(container.querySelectorAll('img'));
+
+    // Crée un tableau pour gérer les positions
+    function calculatePositions() {
+      const containerWidth = container.clientWidth;
+      return [
+        containerWidth * 0.1,                         // gauche
+        containerWidth * 0.5 - (containerWidth * 0.115), // centre
+        containerWidth * 0.8                           // droite
+      ];
+    }
+
+    // Met à jour le contenu du killerBlock
+    function updateKillerInfo(killerName) {
+      const killer = killers.find(k => k.nom === killerName);
+      if (!killer) return;
+
+      document.getElementById('killerName').textContent = killer.nom;
+      document.getElementById('killerNickname').textContent = killer.surnom;
+      document.getElementById('killerPeriod').textContent = killer.periode_activite;
+      document.getElementById('killerVictims').textContent =
+        `${killer.victimes_connues} (${killer.victimes_femmes} femmes, ${killer.victimes_hommes} hommes)`;
+      document.getElementById('killerModus').textContent = killer.modus_operandi;
+      document.getElementById('killerArrest').textContent = killer.arrestation;
+      document.getElementById('killerSentence').textContent = killer.condamnation;
+
+      // Image silhouette
+      const silhouetteContainer = document.getElementById('silhouetteContainer');
+      silhouetteContainer.innerHTML = ''; // on vide le précédent contenu
+
+      if (killer.img_ombres) {
+        const img = document.createElement('img');
+        img.src = killer.img_ombres;
+        img.alt = `Silhouette de ${killer.nom}`;
+        img.classList.add('fade-in'); // optionnel pour l’animation
+        silhouetteContainer.appendChild(img);
+      }
+
+      // Animation du bloc principal (fade-in)
+      const block = document.querySelector('.killerBlock');
+      block.style.opacity = 0;
+      setTimeout(() => block.style.opacity = 1, 200);
+    }
+
+
+    // Déplacement des images avec animation
+    function moveToMiddle(selectedImg) {
+      const positions = calculatePositions();
+      const imgs = images.filter(img => img !== selectedImg);
+
+      // Image centrale
+      selectedImg.style.left = positions[1] + 'px';
+      selectedImg.style.width = '23%';
+      selectedImg.style.boxShadow = '0 0 20px red';
+      selectedImg.style.zIndex = 2;
+
+      // Autres images
+      imgs[0].style.left = positions[0] + 'px';
+      imgs[0].style.width = '10%';
+      imgs[0].style.boxShadow = '#0d1012 2px 2px 5px';
+      imgs[0].style.zIndex = 1;
+
+      imgs[1].style.left = positions[2] + 'px';
+      imgs[1].style.width = '10%';
+      imgs[1].style.boxShadow = '#0d1012 2px 2px 5px';
+      imgs[1].style.zIndex = 1;
+    }
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        moveToMiddle(img);
+        updateKillerInfo(img.dataset.killer);
+      });
+    });
+
+    // Sélection par défaut : Guy Georges
+    const defaultImg = images.find(img => img.dataset.killer === 'Guy Georges');
+    if (defaultImg) {
+      moveToMiddle(defaultImg);
+      updateKillerInfo('Guy Georges');
+    }
+
+    // Recalcul des positions si la fenêtre est redimensionnée
+    window.addEventListener('resize', () => {
+      const centralImg = images.find(img => parseInt(img.style.left) === calculatePositions()[1]);
+      if (centralImg) moveToMiddle(centralImg);
+    });
+  })
+  .catch(error => console.error('Erreur de chargement du JSON :', error));

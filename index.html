@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tueurs en séries</title>
+        <title>Datakill</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -13,8 +13,9 @@
         <source src="introbiensite.mp4" type="video/mp4">
         </video>
 
+        
         <main>
-            <section id="page2" class="center-container page">
+            <section id="page2" class="page">
                 <h1>LE MEURTRE EN QUELQUES DONNEES</h1>
                 <h2>COMBIEN D’HOMICIDES DEPUIS 10 ANS ?</h2>
                 <div class="card-container">
@@ -38,18 +39,10 @@
                 </div>
             </section>
 
-            <section id="page4" class="page chart-page">
-                <div class="text-side right">
-                    <h3><span>Juillet :</span> Le mois le plus meurtrier</h3>
-                    <p>
-                    Les criminologues parlent souvent d’un effet saisonnier : la chaleur exacerbe les émotions, l’agacement monte plus vite, les interactions se multiplient. 
-                    La fatigue de la fin d’année, les tensions au travail, l’alcool, la proximité étouffante des soirées d’été… tout se mélange, et les crimes augmentent.
-                    L’été, les gens sortent, les rues s’animent. 
-                    On voit plus, on entend plus, on remarque plus. Le nombre d’homicides n’est peut-être pas plus élevé…  Le reste de l’année, les corps sont juste mieux dissimulés.
-                    </p>
-                </div>
-                <div class="chart-side left">
-                    <label for="">Séléctionner une année : </label>
+            <section id="page4" class="chart-page">
+
+              <span>
+                    <label for="annee-select">Séléctionner une année : </label>
                     <select id="annee-select">
                         <option value="moy">Moyenne </option>
                         <option value="25">2025</option>
@@ -63,12 +56,24 @@
                         <option value="17">2017</option>
                         <option value="16">2016</option>
                     </select>
-                </div>
+                
                 <div id="bar-graph-container"></div>
+                  </span>
+                
+                  <span>
+                    <h3><span>Juillet :</span> Le mois le plus meurtrier</h3>
+                    <p>
+                    Les criminologues parlent souvent d’un effet saisonnier : la chaleur exacerbe les émotions, l’agacement monte plus vite, les interactions se multiplient. 
+                    La fatigue de la fin d’année, les tensions au travail, l’alcool, la proximité étouffante des soirées d’été… tout se mélange, et les crimes augmentent.
+                    L’été, les gens sortent, les rues s’animent. 
+                    On voit plus, on entend plus, on remarque plus. Le nombre d’homicides n’est peut-être pas plus élevé…  Le reste de l’année, les corps sont juste mieux dissimulés.
+                    </p>
+                </span>
+                
             </section>
 
-            <section id="page5" class="page chart-page inverse">
-                <div class="text-side left">
+            <section id="page5" class="chart-page">
+                <span >
                     <h3>Evolutions des <span>homicides depuis 10 ans</span></h3>
                     <p>
                         Au cours de la dernière décennie, le monde a enregistré environ 4 millions d'homicides, 
@@ -80,11 +85,9 @@
                         démontre que derrière une apparente stabilité mondiale se cachent des dynamiques régionales complexes et des tragédies humaines 
                         ux causes très diverses.
                     </p>
-                </div>
-
-                <div class="chart-side right">
-                    <div id="linear-graph-container"></div>
-                </div>
+                </span>
+                <div id="linear-graph-container"></div>
+                
 
             </section>
 

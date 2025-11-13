@@ -327,3 +327,101 @@ function afficherGraphiqueLigne(annees) {
     .on("mouseout", function() {
         tooltipLine.style("visibility", "hidden");});
     }
+
+
+
+// Sélecteur d'images et mise à jour des informations
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    const killers = data.serialkillers;
+    const container = document.querySelector('.img-selector');
+    const images = Array.from(container.querySelectorAll('img'));
+
+    // Crée un tableau pour gérer les positions
+    function calculatePositions() {
+      const containerWidth = container.clientWidth;
+      return [
+        containerWidth * 0.1,                         // gauche
+        containerWidth * 0.5 - (containerWidth * 0.115), // centre
+        containerWidth * 0.8                           // droite
+      ];
+    }
+
+    // Met à jour le contenu du killerBlock
+    function updateKillerInfo(killerName) {
+      const killer = killers.find(k => k.nom === killerName);
+      if (!killer) return;
+
+      document.getElementById('killerName').textContent = killer.nom;
+      document.getElementById('killerNickname').textContent = killer.surnom;
+      document.getElementById('killerPeriod').textContent = killer.periode_activite;
+      document.getElementById('killerVictims').textContent =
+        `${killer.victimes_connues} (${killer.victimes_femmes} femmes, ${killer.victimes_hommes} hommes)`;
+      document.getElementById('killerModus').textContent = killer.modus_operandi;
+      document.getElementById('killerArrest').textContent = killer.arrestation;
+      document.getElementById('killerSentence').textContent = killer.condamnation;
+
+      // Image silhouette
+      const silhouetteContainer = document.getElementById('silhouetteContainer');
+      silhouetteContainer.innerHTML = ''; // on vide le précédent contenu
+
+      if (killer.img_ombres) {
+        const img = document.createElement('img');
+        img.src = killer.img_ombres;
+        img.alt = `Silhouette de ${killer.nom}`;
+        img.classList.add('fade-in'); // optionnel pour l’animation
+        silhouetteContainer.appendChild(img);
+      }
+
+      // Animation du bloc principal (fade-in)
+      const block = document.querySelector('.killerBlock');
+      block.style.opacity = 0;
+      setTimeout(() => block.style.opacity = 1, 200);
+    }
+
+
+    // Déplacement des images avec animation
+    function moveToMiddle(selectedImg) {
+      const positions = calculatePositions();
+      const imgs = images.filter(img => img !== selectedImg);
+
+      // Image centrale
+      selectedImg.style.left = positions[1] + 'px';
+      selectedImg.style.width = '23%';
+      selectedImg.style.boxShadow = '0 0 20px red';
+      selectedImg.style.zIndex = 2;
+
+      // Autres images
+      imgs[0].style.left = positions[0] + 'px';
+      imgs[0].style.width = '10%';
+      imgs[0].style.boxShadow = '#0d1012 2px 2px 5px';
+      imgs[0].style.zIndex = 1;
+
+      imgs[1].style.left = positions[2] + 'px';
+      imgs[1].style.width = '10%';
+      imgs[1].style.boxShadow = '#0d1012 2px 2px 5px';
+      imgs[1].style.zIndex = 1;
+    }
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        moveToMiddle(img);
+        updateKillerInfo(img.dataset.killer);
+      });
+    });
+
+    // Sélection par défaut : Guy Georges
+    const defaultImg = images.find(img => img.dataset.killer === 'Guy Georges');
+    if (defaultImg) {
+      moveToMiddle(defaultImg);
+      updateKillerInfo('Guy Georges');
+    }
+
+    // Recalcul des positions si la fenêtre est redimensionnée
+    window.addEventListener('resize', () => {
+      const centralImg = images.find(img => parseInt(img.style.left) === calculatePositions()[1]);
+      if (centralImg) moveToMiddle(centralImg);
+    });
+  })
+  .catch(error => console.error('Erreur de chargement du JSON :', error));

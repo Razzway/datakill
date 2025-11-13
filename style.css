@@ -138,6 +138,15 @@ select {
   border-radius: 3px;
 }
 
+#linear-graph-container, .shadow-container{
+
+  background-color: rgb(34, 34, 34, 0.5);
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+
+}
+
+
 .mention-legale, .sources{
     display: none;
     position: fixed;

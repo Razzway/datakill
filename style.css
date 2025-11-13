@@ -33,6 +33,7 @@ body {
     height: fit-content;
     font-family: 'Old NewsPaper Types';
     color: var(--white);
+    margin: 0;
 }
 
 .video {

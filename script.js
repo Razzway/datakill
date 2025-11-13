@@ -94,6 +94,8 @@ d3.json("populationData.json").then(data1 => {
         if (afficheData) {
           tooltipLine
             .style("visibility", "visible")
+            .style("background-color", "black")
+            .style("color", "white") 
             .html(`<strong>${afficheData.nom}</strong><br>Taux : ${afficheData.value}`);
         } else {
           tooltipLine

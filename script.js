@@ -20,7 +20,7 @@ video.addEventListener("ended", () => {
 
 /////////////////////////////////// Sources /////////////////////////////////////////////////////
 
-document.querySelector(".lien-sources").addEventListener('click', function (){
+/*document.querySelector(".lien-sources").addEventListener('click', function (){
 
   document.getElementById("sources").style.display="block";
   document.querySelector("body").style.overflow="hidden";
@@ -45,7 +45,7 @@ document.querySelector(".button-mention-legale").addEventListener('click', funct
 
   document.getElementById("mention-legale").style.display="none";
   document.querySelector("body").style.overflow="auto";
-});
+});*/
 
 
 ///////////////////////////////////////////////// Map /////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ afficherGraphiqueLigne(annees);
   
 
 function afficherGraphiqueBarre(dataBarre) {
-  const margin = { top: 20, right: 30, bottom: 50, left: 60 };
+  const margin = { top: 20, right: 30, bottom: 80, left: 60 };
           const width = 700 - margin.left - margin.right;
           const height = 400 - margin.top - margin.bottom;
 
@@ -177,38 +177,55 @@ function afficherGraphiqueBarre(dataBarre) {
               .attr("transform", `translate(${margin.left},${margin.top})`);
 
 //////////////////////////// Abscisse //////////////////////////////////////
-  const xScaleBar = d3.scaleBand()
-              .domain(dataBarre.map(d => d.mois)) 
-              .range([0, width])                     
-              .padding(0.3);   
 
-/////// Nom de l'axe ///////
-  svgBar.append("text")
-      .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height +   45)
-      .attr("fill", "white")
-      .text("Mois");
+const xScaleBar = d3.scaleBand()
+  .domain(dataBarre.map(d => d.mois))
+  .range([0, width])
+  .padding(0.3);
+
+
+const xAxis = svgBar.append("g")
+  .attr("class", "x-axis axis")
+  .attr("transform", `translate(0,${height})`)
+  .call(d3.axisBottom(xScaleBar));
+
+
+xAxis.selectAll("text")
+  .style("font-size", "1rem")
+  .style("fill", "white")
+  .attr("text-anchor", "end")
+  .attr("transform", "rotate(-45)")
+  .attr("dx", "-0.5em")              
+  .attr("dy", "0.5em");            
+
+
+svgBar.append("text")
+  .attr("text-anchor", "end")
+  .attr("x", width)
+  .attr("y", height + 80)  
+  .attr("fill", "white")
+  .text("Mois");
+
             
 //////////////////////////// Ordonnée //////////////////////////////////////
   const yScaleBar = d3.scaleLinear()
               .domain([0, d3.max(dataBarre, d => d.value)]) 
               .range([height, 0]);                      
 
-                svgBar.append("g")
-              .attr("class", "x-axis axis")
-              .attr("transform", `translate(0,${height})`) 
-              .call(d3.axisBottom(xScaleBar));             
+                          
 
           svgBar.append("g")
               .attr("class", "y-axis axis")
-              .call(d3.axisLeft(yScaleBar));      
+              .call(d3.axisLeft(yScaleBar))
+              .selectAll("text") 
+              .style("font-size", "1rem") 
+              .style("fill", "white");    
         
 ////// Nom de l'axe //////
   svgBar.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left+20)
+      .attr("y", -margin.left+13)
       .attr("x", -margin.top)
       .attr("fill", "white")
       .text("Nombre de Meurtre")
@@ -248,67 +265,77 @@ function afficherGraphiqueBarre(dataBarre) {
 
 ///////////////////////////////////////////// Graphique Linéaire /////////////////////////////////////////////////
 function afficherGraphiqueLigne(annees) {
-  const margin = { top: 20, right: 30, bottom: 50, left: 70 };
-          const width = 700 - margin.left - margin.right;
-          const height = 400 - margin.top - margin.bottom;
+  const margin = { top: 20, right: 30, bottom: 60, left: 80 };
+  const width = 700 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
 
   const svgLine = d3.select("#linear-graph-container")
-              .append("svg")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-              .attr("transform", `translate(${margin.left},${margin.top})`);
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
-//////////////////////////// Abscisse //////////////////////////////////////
-  const xScaleLine =  d3.scalePoint()
-              .domain(annees.map(d => d.annee)) 
-              .range([0, width])                     
-           
-/////// Nom de l'axe ///////
+  //////////////////////////// Abscisse //////////////////////////////////////
+  const xScaleLine = d3.scalePoint()
+    .domain(annees.map(d => d.annee))
+    .range([0, width]);
+
+ 
+  const xAxis = svgLine.append("g")
+    .attr("class", "x-axis axis")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(xScaleLine));
+
+  
+  xAxis.selectAll("text")
+    .style("font-size", "1rem")
+    .style("fill", "white")
+    .attr("text-anchor", "middle");
+
+////// Nom de l'axe //////
   svgLine.append("text")
-      .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height +   45)
-      .attr("fill", "white")
-      .text("Année");
+    .attr("text-anchor", "end")
+    .attr("x", width)
+    .attr("y", height + 55)
+    .attr("fill", "white")
+    .text("Année");
 
-//////////////////////////// Ordonnée //////////////////////////////////////
+  //////////////////////////// Ordonnée //////////////////////////////////////
   const yScaleLine = d3.scaleLinear()
-              .domain([0, d3.max(annees, d => d.value)]) 
-              .range([height, 0]);                      
+    .domain([0, d3.max(annees, d => d.value)])
+    .range([height, 0]);
 
-                svgLine.append("g")
-              .attr("class", "x-axis axis")
-              .attr("transform", `translate(0,${height})`) 
-              .call(d3.axisBottom(xScaleLine));             
+  
+  svgLine.append("g")
+    .attr("class", "y-axis axis")
+    .call(d3.axisLeft(yScaleLine))
+    .selectAll("text")
+    .style("font-size", "1rem")
+    .style("fill", "white");
 
-          svgLine.append("g")
-              .attr("class", "y-axis axis")
-              .call(d3.axisLeft(yScaleLine));   
-              
-/////// Nom de l'axe ///////
+  ////// Nom de l'axe //////
   svgLine.append("text")
-      .attr("text-anchor", "end")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left+20)
-      .attr("x", -margin.top)
-      .attr("fill", "white")
-      .text("Nombre de Meurtre")
-            
-////////////////////////////////// Trait //////////////////////////////////
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left + 12)
+    .attr("x", -margin.top)
+    .attr("fill", "white")
+    .text("Nombre de Meurtre");
 
-    svgLine.append("path")
-      .datum(annees)
-      .attr("fill", "rgba(126, 42, 42, 0.3)")
-      .attr("stroke", "#640D14")
-      .attr("stroke-width", 5)
-      .attr("d", d3.area()
-        .x(function(d) { return xScaleLine(d.annee) })
-        .y0(yScaleLine(0))
-        .y1(function(d) { return yScaleLine(d.value) })
-        )
+  ////////////////////////////  Trait //////////////////////////////////
+  svgLine.append("path")
+    .datum(annees)
+    .attr("fill", "rgba(126, 42, 42, 0.3)")
+    .attr("stroke", "#640D14")
+    .attr("stroke-width", 5)
+    .attr("d", d3.area()
+      .x(d => xScaleLine(d.annee))
+      .y0(yScaleLine(0))
+      .y1(d => yScaleLine(d.value))
+    );
 
-//////// Points ///////
+  //////////////////////////// Points + Tooltip ////////////////////////////
   const tooltipLine = d3.select("body")
     .append("div")
     .style("position", "absolute")
@@ -320,26 +347,29 @@ function afficherGraphiqueLigne(annees) {
     .style("font-size", "14px")
     .style("color", "black");
 
-
-  svgLine
-    .append("g")
-    .selectAll("dot")
+  svgLine.append("g")
+    .selectAll("circle")
     .data(annees)
     .enter()
     .append("circle")
-    .attr("cx", function(d) { return xScaleLine(d.annee) } )
-    .attr("cy", function(d) { return yScaleLine(d.value) } )
+    .attr("cx", d => xScaleLine(d.annee))
+    .attr("cy", d => yScaleLine(d.value))
     .attr("r", 6.5)
     .attr("fill", "#f7fffdff")
     .on("mouseover", function(event, d) {
-        tooltipLine.style("visibility", "visible")
-                    .html(`<strong>${d.annee}</strong><br>${d.value} meurtres`); })
+      tooltipLine.style("visibility", "visible")
+        .html(`<strong>${d.annee}</strong><br>${d.value} meurtres`);
+    })
     .on("mousemove", function(event) {
-        tooltipLine.style("top", (event.pageY - 30) + "px")
-                    .style("left", (event.pageX + 10) + "px");})
+      tooltipLine
+        .style("top", (event.pageY - 30) + "px")
+        .style("left", (event.pageX + 10) + "px");
+    })
     .on("mouseout", function() {
-        tooltipLine.style("visibility", "hidden");});
-    }
+      tooltipLine.style("visibility", "hidden");
+    });
+}
+
 
 
 

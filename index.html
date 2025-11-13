@@ -6,7 +6,7 @@
         <title>Tueurs en séries</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    
+
     <body>
 
         <video autoplay muted class="video">
@@ -68,6 +68,39 @@
 
             <div class="chart-side right">
                 <div id="linear-graph-container"></div>
+            </div>
+
+        </section>
+
+        <section class="killer">
+            <h1>Les serial killers en France</h1>
+
+            <div class="img-selector">
+                <img src="img/thierry-paulin.webp" alt="Thierry Paulin" data-killer="Thierry Paulin">
+                <img src="img/guy-georges.jpeg" alt="Guy Georges" data-killer="Guy Georges">
+                <img src="img/michel-fourniret.jpeg" alt="Michel Fourniret" data-killer="Michel Fourniret">
+            </div>
+
+            <div class="killerBlock">
+                <div class="classified">
+                    <img src="img/classified.png" alt="">
+                </div>
+
+                <h1 id="killerName">Sélectionnez un tueur</h1>
+                <h2 id="killerNickname"></h2>
+                <p id="killerModus">Cliquez sur une image pour afficher le dossier correspondant.</p>
+
+                <div class="killer-details">
+                    <div class="killer-info">
+                        <p>Période d'activité : <span id="killerPeriod"></span></p>
+                        <p>Victimes connues : <span id="killerVictims"></span></p>
+                        <p>Arrestation : <span id="killerArrest"></span></p>
+                        <p>Condamnation : <span id="killerSentence"></span></p>
+                    </div>
+
+                    <div class="silhouette-container" id="silhouetteContainer">
+                    </div>
+                </div>
             </div>
 
         </section>

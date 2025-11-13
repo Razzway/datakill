@@ -171,30 +171,39 @@
       "surnom": "Le tueur de l'Est parisien",
       "periode_activite": "1991 - 1997",
       "victimes_connues": 7,
+      "victimes_femmes": 7,
+      "victimes_hommes": 0,
       "meurtres_par_an": 1.17,
-      "modus_operandi": "Repérait ses victimes dans l’est de Paris, les suivait jusqu’à leur domicile, les violait et les assassinait.",
+      "modus_operandi": "Entre 1991 et 1997, il a violé et assassiné plusieurs jeunes femmes à Paris et dans ses environs. Connu pour sa violence extrême, il a longtemps échappé à la police grâce à l’absence de coordination entre les enquêtes. Arrêté en 1998 après une identification par ADN, il a été reconnu coupable de sept meurtres et condamné à la réclusion criminelle à perpétuité en 2001, sans possibilité de libération avant 22 ans. Son affaire a marqué l’histoire judiciaire française et conduit à une meilleure utilisation du fichier ADN dans les enquêtes criminelles.",
       "arrestation": 1998,
-      "condamnation": "Perpétuité incompressible (2001)"
+      "condamnation": "Perpétuité incompressible (2001)",
+      "img_ombres": "img/ombres/guy_georges.png"
     },
     {
       "nom": "Michel Fourniret",
       "surnom": "L’Ogre des Ardennes",
       "periode_activite": "1987 - 2001",
-      "victimes_connues": 11,
+      "victimes_connues": 12,
+      "victimes_femmes": 11,
+      "victimes_hommes": 1,
       "meurtres_par_an": 0.79,
-      "modus_operandi": "Attirait des jeunes filles isolées sous un prétexte anodin avant de les violer et de les tuer, souvent avec la complicité de Monique Olivier.",
+      "modus_operandi": "Actif entre les années 1980 et 2000, il a enlevé, violé et assassiné plusieurs jeunes filles et jeunes femmes en France et en Belgique, souvent avec la complicité de son épouse, Monique Olivier. Intelligent, manipulateur et méthodique, il ciblait principalement des victimes vulnérables. Arrêté en 2003, il a été condamné en 2008 à la réclusion criminelle à perpétuité pour sept meurtres, puis mis en examen pour d’autres affaires. Il est mort en prison en 2021, sans avoir avoué tous ses crimes.",
       "arrestation": 2003,
-      "condamnation": "Perpétuité incompressible (2008)"
+      "condamnation": "Perpétuité incompressible (2008)",
+      "img_ombres": "img/ombres/michel_fourniret.png"
     },
     {
       "nom": "Thierry Paulin",
       "surnom": "Le tueur de vieilles dames",
       "periode_activite": "1984 - 1987",
       "victimes_connues": 21,
+      "victimes_femmes": 21,
+      "victimes_hommes": 0,
       "meurtres_par_an": 7.0,
-      "modus_operandi": "S’attaquait à des personnes âgées pour les voler avant de les tuer par strangulation ou coups.",
+      "modus_operandi": "Installé à Paris, il menait une vie nocturne dans le milieu des cabarets et des boîtes de nuit, travaillant comme serveur ou transformiste. Pour financer son train de vie luxueux, il a commis, entre 1984 et 1987, une série de meurtres de personnes âgées, souvent pour les voler. Arrêté en 1987, il a reconnu plusieurs crimes mais est mort du SIDA en prison avant son procès, à seulement 25 ans.",
       "arrestation": 1987,
-      "condamnation": "Mort avant son procès (1989)"
+      "condamnation": "Mort avant son procès (1989)",
+      "img_ombres": "img/ombres/thierry_paulin.png"
     }
   ]
 }

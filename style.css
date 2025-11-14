@@ -34,18 +34,10 @@ body {
     font-family: 'Old NewsPaper Types';
     color: var(--white);
     margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Empêche le scroll horizontal */
 }
 
-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;      /* OK ici car overflow-x hidden supprime les scrolls */
-    height: 100vh;
-    object-fit: cover;
-    z-index: 9999;
+.video {
+    max-width: 100vw;
 }
 
 h1, h2 {
@@ -90,12 +82,12 @@ select {
 
 .big-text-left-container {
   display: flex;
-  flex-direction: column; /* empile verticalement */
-  align-items: center;    /* centre le texte horizontalement */
-  justify-content: flex-start; /* commence en haut */
-  width: fit-content;     /* largeur minimale selon le contenu */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
   padding: 40px 20px;
-  margin-left: 0;         /* reste sur la gauche de la page */
+  margin-left: 0;
   font-size: 3rem;
 }
 
@@ -106,21 +98,57 @@ select {
   padding: 4px 20px;
   font-family: 'Veteran Type Writer';
   animation: popIn 0.8s ease forwards;
-  margin: 10px 0; /* espace vertical autour du chiffre */
+  margin: 10px 0;
 }
 
 
 .big-text-right-container {
   display: flex;
-  flex-direction: column;  /* empile les <p> verticalement */
-  align-items: center;     /* centre le texte à l’intérieur du conteneur */
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
-  width: fit-content;      /* largeur minimale selon le contenu */
+  width: fit-content;
   padding: 40px 20px;
-  margin-left: auto;       /* pousse le conteneur à droite */
+  margin-left: auto;
   margin-right: 0;
   font-size: 3rem;
 }
+
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    gap: 60px;
+}
+
+.side-image-right,
+.side-image-left {
+    width: 450px;   
+    height: auto;
+}
+
+.couteau {
+    width: 380px;
+}
+
+.main {
+    width: 330px;
+}
+
+
+page {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .chart-page {
   display: flex;
@@ -177,7 +205,7 @@ select {
   box-shadow: 0 0 30px rgba(255,0,0,0.5);
   border: 2px solid rgba(255,0,0,0.7); 
   backdrop-filter: blur(5px);
-  font-family: Arial, Helvetica, sans-serif;
+  
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -199,14 +227,9 @@ select {
   margin-bottom: 1rem;
 }
 
-.sources-list a {
-  color: var(--red-peps);
-}
-
 .sources-list {
   list-style: square;
   padding-left: 0;
-  
 }
 
 .sources-list li {

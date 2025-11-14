@@ -4,15 +4,15 @@
 const video = document.querySelector("video");
 
 video.addEventListener("play", () => {
+  document.body.style.overflow = "hidden";   // Bloque scroll pendant vidéo
   document.querySelector("main").style.display = "none";
 });
 
 video.addEventListener("ended", () => {
-  video.style.display = "none";        // Masquer la vidéo APRÈS la lecture
+  video.style.display = "none";
+  document.body.style.overflow = "auto";     // Restaure le scroll
   document.querySelector("main").style.display = "block";
 });
-
-
 
 /////////////////////////////////// Sources /////////////////////////////////////////////////////
 

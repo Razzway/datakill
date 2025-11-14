@@ -14,9 +14,6 @@ video.addEventListener("ended", () => {
   document.querySelector("main").style.display = "block";
 });
 
-
-
-
 /////////////////////////////////// Sources /////////////////////////////////////////////////////
 
 /*document.querySelector(".lien-sources").addEventListener('click', function (){

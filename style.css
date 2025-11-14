@@ -197,9 +197,14 @@ select {
   margin-bottom: 1rem;
 }
 
+.sources-list a {
+  color: var(--red-peps);
+}
+
 .sources-list {
   list-style: square;
   padding-left: 0;
+  
 }
 
 .sources-list li {

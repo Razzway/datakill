@@ -141,14 +141,6 @@ select {
 }
 
 
-page {
- 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 
 .chart-page {
   display: flex;
@@ -183,79 +175,7 @@ page {
 }
 
 
-.mention-page {
-  background-color: var(--main-color);
-  color: white;
-  font-family: 'Veteran Type Writer';
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mention-container {
-  background-color: rgba(17,17,17,0.9);
-  padding: 40px;
-  border-radius: 20px;
-  width: 70%;
-  max-width: 900px;
-  box-shadow: 0 0 30px rgba(255,0,0,0.5);
-  border: 2px solid rgba(255,0,0,0.7); 
-  backdrop-filter: blur(5px);
-  
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.mention-container h1, 
-.mention-container h2 {
-  color: var(--blood-red);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.mention-container p, 
-.mention-container li {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.sources-list {
-  list-style: square;
-  padding-left: 0;
-}
-
-.sources-list li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.droits {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-top: 1.5rem;
-}
-
-.retour {
-  display: inline-block;
-  margin-top: 20px;
-  color: var(--blood-red);
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.retour:hover {
-  color: white;
-}
 
 
 .killerBlock {
@@ -540,4 +460,77 @@ page {
   .text-side p {
     font-size: 0.95rem;
   }
+}
+
+
+.mention-legale, .sources{
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--main-color);
+  padding: 20px;
+  overflow:scroll;
+  height: 90%;
+  width: 70%;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,0,0,0.5);
+  border: 2px solid rgba(255,0,0,0.7); 
+  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+ 
+.mention-legale h2, .sources h2 {
+  color: var(--red-peps);
+  text-transform: uppercase;
+  background-color:var(--main-color);
+  font-size: 3rem;
+  text-align: center;
+}
+
+
+
+.sources-list {
+  
+  padding-left: 0;
+}
+
+.sources-list li {
+list-style: none;
+}
+
+.droits {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 1.5rem;
+}
+
+button {
+  border: none;
+ padding: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  color: var(--white);
+  background-color: var(--main-color);
+}
+
+
+button:hover {
+  color: var(--main-color);
+  background-color: var(--white);
+}
+
+a{
+  text-decoration: none;
+  color: var(--red-peps);
+}
+
+a:hover{
+  color: var(--white);
 }

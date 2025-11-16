@@ -16,7 +16,7 @@ video.addEventListener("ended", () => {
 
 /////////////////////////////////// Sources /////////////////////////////////////////////////////
 
-/*document.querySelector(".lien-sources").addEventListener('click', function (){
+document.querySelector(".lien-sources").addEventListener('click', function (){
 
   document.getElementById("sources").style.display="block";
   document.querySelector("body").style.overflow="hidden";
@@ -41,7 +41,7 @@ document.querySelector(".button-mention-legale").addEventListener('click', funct
 
   document.getElementById("mention-legale").style.display="none";
   document.querySelector("body").style.overflow="auto";
-});*/
+});
 
 
 ///////////////////////////////////////////////// Map /////////////////////////////////////////////////////////////

@@ -4,13 +4,13 @@
 const video = document.querySelector("video");
 
 video.addEventListener("play", () => {
-  document.body.style.overflow = "hidden";   // Bloque scroll pendant vidéo
+  document.body.style.overflow = "hidden";   
   document.querySelector("main").style.display = "none";
 });
 
 video.addEventListener("ended", () => {
   video.style.display = "none";
-  document.body.style.overflow = "auto";     // Restaure le scroll
+  document.body.style.overflow = "auto";     
   document.querySelector("main").style.display = "block";
 });
 
@@ -45,7 +45,7 @@ document.querySelector(".button-mention-legale").addEventListener('click', funct
 });
 
 
-///////////////////////////////////////////////// Map /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////// Map //////////////////////////////////////////////////////////
 d3.json("populationData.json").then(data1 => {  
   const svg = d3.select("svg"),
         width = +svg.attr("width"),
@@ -93,7 +93,7 @@ d3.json("populationData.json").then(data1 => {
             .style("visibility", "visible")
             .style("background-color", "black")
             .style("color", "white") 
-            .html(`<strong>${afficheData.nom}</strong><br>Taux : ${afficheData.value}`);
+            .html(`<strong>${afficheData.nom}</strong><br>  ${afficheData.value} meutres pour une population de 100 000 habitants`);
         } else {
           tooltipLine
             .style("visibility", "visible")
@@ -134,7 +134,7 @@ d3.json("populationData.json").then(data1 => {
 
 
 
-/////////////////////////////////////////////// GRAPHIQUES ///////////////////////////////////////////////////////////////
+////////////////////////////////////////// GRAPHIQUES //////////////////////////////////////////////////////////
  
 d3.json("data.json").then(data2 => {  
 
@@ -260,7 +260,7 @@ svgBar.append("text")
                   tooltipBar.style("visibility", "hidden");});
 };
 
-///////////////////////////////////////////// Graphique Linéaire /////////////////////////////////////////////////
+///////////////////////////////////////// Graphique Linéaire /////////////////////////////////////////////////
 function afficherGraphiqueLigne(annees) {
   const margin = { top: 20, right: 30, bottom: 60, left: 80 };
   const width = 700 - margin.left - margin.right;
@@ -318,7 +318,7 @@ function afficherGraphiqueLigne(annees) {
     .attr("y", -margin.left + 12)
     .attr("x", -margin.top)
     .attr("fill", "white")
-    .text("Nombre de Meurtre");
+    .text("Nombre de Meurtres");
 
   ////////////////////////////  Trait //////////////////////////////////
   svgLine.append("path")

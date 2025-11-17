@@ -88,9 +88,6 @@ max-width: 90%;
 margin-left: 20px;
 }
 
-
-
-
 .video {
     max-width: 100vw;
 }
@@ -121,7 +118,6 @@ strong {
 select {
   background-color: var(--main-color);
   color: var(--white);
-  
   border-radius: 5px;
   padding: 5px;
 }
@@ -133,6 +129,7 @@ select {
   justify-content: center;
   align-items: center;
 }
+
 
 
 .big-text-left-container {
@@ -228,10 +225,6 @@ select {
   box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
 
 }
-
-
-
-
 
 .killerBlock {
     position: relative;
@@ -497,24 +490,18 @@ select {
 
 
 
-@media (max-width: 900px) {
-  .chart-page, .chart-page.inverse {
+@media (max-width: 1250px) {
+  .chart-page {
     flex-direction: column;
-    text-align: center;
     padding: 40px 20px;
   }
 
-  .text-side, .chart-side {
-    max-width: 100%;
+  .text-graph {
+    max-width: 800px;
+    font-size: 1.1rem;
   }
 
-  .text-side h3 {
-    font-size: 1.5rem;
-  }
-
-  .text-side p {
-    font-size: 0.95rem;
-  }
+  
 }
 
 
@@ -589,3 +576,4 @@ a{
 a:hover{
   color: var(--white);
 }
+

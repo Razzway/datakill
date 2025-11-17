@@ -61,6 +61,16 @@ nav ul {
 
 nav li {
     list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.text-nav{
+  display: none;
+}
+
+nav:hover .text-nav {
+  display: inline-block;
 }
 
 nav img {
@@ -68,6 +78,9 @@ nav img {
   
 }
 
+nav li:hover {
+  transform: scale(1.2);
+}
 
 main{
 
